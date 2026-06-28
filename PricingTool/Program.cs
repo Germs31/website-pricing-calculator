@@ -10,7 +10,16 @@ var availableFeatures = new List<Feature>
 var pricing = new PricingService();
 
 ComplexityTier tier = ComplexityTier.Premium;
-int pageCount = 5;
+Console.WriteLine("How Many Pages do you want to build?");
+string? input = Console.ReadLine();
+
+int pageCount;
+
+if(!int.TryParse(input, out pageCount))
+{
+    Console.WriteLine("not a valid number - deafulting to 1");
+    pageCount = 1;
+}
 bool isRush = true; 
 
 decimal total = pricing.CalculateTotal(tier, pageCount, availableFeatures, isRush);
