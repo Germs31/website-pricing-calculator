@@ -10,11 +10,22 @@ public class PricingService
     };
 
     private const decimal PricerPerPage = 150m;
+    private const decimal RushSurChargeRate = 0.2m;
 
-    public decimal CalculateTotal(ComplexityTier tier, int pageCount)
+    public decimal CalculateTotal(ComplexityTier tier, int pageCount, List<Feature> features, bool isRush)
     {
         decimal basePrice = _basePrices[tier];
-        decimal pagePrice = pageCount * PricerPerPage;
-        return basePrice + pagePrice;
+        decimal pagesCost = pageCount * PricerPerPage;
+        decimal featuresCost = features.Sum(f => f.Price);
+
+        decimal subtotal = basePrice + pagesCost + featuresCost;
+
+        if(isRush)
+        {
+            subtotal += subtotal * RushSurChargeRate;
+        }
+
+        return subtotal;
     }
+
 }
