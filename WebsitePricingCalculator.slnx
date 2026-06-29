@@ -1,4 +1,5 @@
 <Solution>
+  <Project Path="PricingTool.Api/PricingTool.Api.csproj" />
   <Project Path="PricingTool.Core/PricingTool.Core.csproj" />
   <Project Path="PricingTool/PricingTool.csproj" />
 </Solution>
