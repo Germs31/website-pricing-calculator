@@ -1,4 +1,4 @@
-﻿using PricingTool;
+﻿using PricingTool.Core;
 
 var availableFeatures = new List<Feature>
 {

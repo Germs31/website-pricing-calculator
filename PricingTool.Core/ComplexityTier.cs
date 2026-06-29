@@ -1,4 +1,4 @@
-namespace PricingTool;
+namespace PricingTool.Core;
 
 public enum ComplexityTier
 {
